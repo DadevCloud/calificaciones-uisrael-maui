@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CalificacionesUisrael.MainPage"
+             Title="Calificaciones UISRAEL"
+             BackgroundColor="#F5F7FB">
+
+    <ContentPage.Resources>
+        <Style x:Key="TituloPrincipal" TargetType="Label">
+            <Setter Property="FontSize" Value="26" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="#1F2937" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+        </Style>
+
+        <Style x:Key="Subtitulo" TargetType="Label">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="#6B7280" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+        </Style>
+
+        <Style x:Key="TituloSeccion" TargetType="Label">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="#111827" />
+        </Style>
+
+        <Style x:Key="EtiquetaCampo" TargetType="Label">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="#374151" />
+        </Style>
+
+        <Style TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="PlaceholderColor" Value="#9CA3AF" />
+            <Setter Property="HeightRequest" Value="50" />
+            <Setter Property="Margin" Value="0,4,0,8" />
+        </Style>
+
+        <Style TargetType="Picker">
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="TitleColor" Value="#9CA3AF" />
+            <Setter Property="HeightRequest" Value="50" />
+        </Style>
+
+        <Style TargetType="DatePicker">
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="HeightRequest" Value="50" />
+        </Style>
+
+        <Style x:Key="BotonPrincipal" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#2563EB" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="CornerRadius" Value="12" />
+            <Setter Property="HeightRequest" Value="52" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+
+        <Style x:Key="BotonSecundario" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#E5E7EB" />
+            <Setter Property="TextColor" Value="#111827" />
+            <Setter Property="CornerRadius" Value="12" />
+            <Setter Property="HeightRequest" Value="52" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+
+            <VerticalStackLayout Spacing="8" HorizontalOptions="Center">
+                <Border BackgroundColor="White"
+                Stroke="#E5E7EB"
+                StrokeThickness="1"
+                Padding="10">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20" />
+                    </Border.StrokeShape>
+
+                    <Image Source="uisraelxd.png"
+                   HeightRequest="110"
+                   WidthRequest="110"
+                   Aspect="AspectFit" />
+                </Border>
+
+                <Label Text="Sistema de Calificaciones UISRAEL"
+               Style="{StaticResource TituloPrincipal}" />
+
+                <Label Text="Ingrese las notas del estudiante y calcule el resultado final"
+               Style="{StaticResource Subtitulo}" />
+            </VerticalStackLayout>
+            <!-- Datos generales -->
+            <Border BackgroundColor="White"
+                    Stroke="#E5E7EB"
+                    StrokeThickness="1"
+                    Padding="20"
+                    Margin="0,0,0,6">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="18" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Datos generales"
+                           Style="{StaticResource TituloSeccion}" />
+
+                    <Label Text="Estudiante"
+                           Style="{StaticResource EtiquetaCampo}" />
+
+                    <Picker x:Name="pickerEstudiante"
+                            Title="Seleccione un estudiante"
+                              Margin="0,6,0,10"
+                              HeightRequest="55">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Ana López</x:String>
+                                <x:String>Carlos Pérez</x:String>
+                                <x:String>María Torres</x:String>
+                                <x:String>José Andrade</x:String>
+                                <x:String>Lucía Herrera</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <Label Text="Fecha"
+                           Style="{StaticResource EtiquetaCampo}" />
+
+                    <DatePicker x:Name="dpFecha"
+                                Format="dd/MM/yyyy" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Primer parcial -->
+            <Border BackgroundColor="White"
+                    Stroke="#E5E7EB"
+                    StrokeThickness="1"
+                    Padding="16">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="18" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Primer parcial"
+                           Style="{StaticResource TituloSeccion}" />
+
+                    <Label Text="Nota Seguimiento 1 "
+                           Style="{StaticResource EtiquetaCampo}" />
+                    <Entry x:Name="txtSeg1"
+                           Placeholder="Escribir una nta"
+                           Keyboard="Numeric"
+                           MaxLength="5" />
+
+                    <Label Text="Examen 1 "
+                           Style="{StaticResource EtiquetaCampo}" />
+                    <Entry x:Name="txtEx1"
+                           Placeholder="Escribir una nota"
+                           Keyboard="Numeric"
+                           MaxLength="5" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Segundo parcial -->
+            <Border BackgroundColor="White"
+                    Stroke="#E5E7EB"
+                    StrokeThickness="1"
+                    Padding="16">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="18" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Segundo parcial"
+                           Style="{StaticResource TituloSeccion}" />
+
+                    <Label Text="Nota Seguimiento 2 "
+                           Style="{StaticResource EtiquetaCampo}" />
+                    <Entry x:Name="txtSeg2"
+                           Placeholder="Escribir una nota"
+                           Keyboard="Numeric"
+                           MaxLength="5" />
+
+                    <Label Text="Examen 2 "
+                           Style="{StaticResource EtiquetaCampo}" />
+                    <Entry x:Name="txtEx2"
+                           Placeholder="Escribir una nota"
+                           Keyboard="Numeric"
+                           MaxLength="5" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Resultados -->
+            <Border BackgroundColor="White"
+                    Stroke="#E5E7EB"
+                    StrokeThickness="1"
+                    Padding="16">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="18" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="14">
+                    <Label Text="Resultados"
+                           Style="{StaticResource TituloSeccion}" />
+
+                    <Grid ColumnDefinitions="*,Auto"
+                          RowDefinitions="Auto,Auto,Auto,Auto"
+                          RowSpacing="10">
+
+                        <Label Text="Nota Parcial 1"
+                               Style="{StaticResource EtiquetaCampo}"
+                               Grid.Row="0"
+                               Grid.Column="0" />
+                        <Label x:Name="lblParcial1"
+                               Text="0.00"
+                               FontAttributes="Bold"
+                               FontSize="16"
+                               TextColor="#111827"
+                               Grid.Row="0"
+                               Grid.Column="1" />
+
+                        <Label Text="Nota Parcial 2"
+                               Style="{StaticResource EtiquetaCampo}"
+                               Grid.Row="1"
+                               Grid.Column="0" />
+                        <Label x:Name="lblParcial2"
+                               Text="0.00"
+                               FontAttributes="Bold"
+                               FontSize="16"
+                               TextColor="#111827"
+                               Grid.Row="1"
+                               Grid.Column="1" />
+
+                        <Label Text="Nota Final"
+                               Style="{StaticResource EtiquetaCampo}"
+                               Grid.Row="2"
+                               Grid.Column="0" />
+                        <Label x:Name="lblFinal"
+                               Text="0.00"
+                               FontAttributes="Bold"
+                               FontSize="18"
+                               TextColor="#111827"
+                               Grid.Row="2"
+                               Grid.Column="1" />
+
+                        <Label Text="Estado"
+                               Style="{StaticResource EtiquetaCampo}"
+                               Grid.Row="3"
+                               Grid.Column="0" />
+                        <Label x:Name="lblEstado"
+                               Text="Pendiente"
+                               FontAttributes="Bold"
+                               FontSize="18"
+                               TextColor="Gray"
+                               Grid.Row="3"
+                               Grid.Column="1" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Botones -->
+            <VerticalStackLayout Spacing="10">
+                <Button Text="Calcular e imprimir"
+                        Style="{StaticResource BotonPrincipal}"
+                        Clicked="OnCalcularClicked" />
+
+                <Button Text="Limpiar"
+                        Style="{StaticResource BotonSecundario}"
+                        Clicked="OnLimpiarClicked" />
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
